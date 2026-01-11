@@ -1,0 +1,374 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ===== Login / Signup Card ===== */
+.auth-card {
+    width: 23.75rem;
+    min-height: 26rem;
+    padding: 2.1875rem 1.875rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(1.125rem);
+    border-radius: 1.125rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 1.5625rem 3.125rem rgba(0,0,0,0.35),
+                inset 0 0 0 0.0625rem rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeUp 0.6s ease;
+    margin: 0 auto;  /* Center card */
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 1.5625rem;
+    font-weight: 600;
+    font-size: 2.2rem;
+    letter-spacing: 0.03125rem;
+    color: #8c74b9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8125rem 0.875rem;
+    margin-top: 0.875rem;
+    border-radius: 0.625rem;
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255,255,255,0.65);
+}
+
+input:focus, textarea:focus {
+    border-color: #8b63ae;
+    background: rgba(255,255,255,0.25);
+    box-shadow: 0 0 0 0.1875rem rgba(152,124,193,0.25);
+}
+
+button {
+    width: 50%;
+    padding: 0.8125rem;
+    margin: 1.375rem auto 0;
+    display: block;
+    background: linear-gradient(135deg, #a78fd2, #926cb8);
+    color: #ffffff;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.025rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-0.125rem);
+    background: linear-gradient(135deg, #9d80d4, #927cba);
+    box-shadow: 0 0.625rem 1.5625rem rgba(167,143,210,0.5);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ===== Link text ===== */
+.link {
+    margin-top: 1.125rem;
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+}
+
+.link a {
+    color: #9562c4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== App Layout ===== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: rgba(0,0,0,0.35);
+    padding: 1.25rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #fff;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+/* Sidebar heading */
+.sidebar h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Sidebar buttons */
+.sidebar button {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #a78fd2, #926cb8);
+    border: none;
+    border-radius: 0.625rem;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.sidebar button:hover {
+    background: linear-gradient(135deg, #9d80d4, #927cba);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    margin-left: 220px; /* same as sidebar width */
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center the posts */
+    gap: 1.5rem;
+}
+
+/* ===== Post Card ===== */
+.post-card {
+    background: rgba(255,255,255,0.12);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0 0.3125rem 0.625rem rgba(0,0,0,0.25);
+    max-width: 28rem; /* fixed width */
+    width: 100%;
+    transition: transform 0.2s ease;
+}
+.post-card:hover {
+    transform: translateY(-3px);
+}
+
+.post-card h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #a78fd2;
+}
+
+.post-card img {
+    width: 100%;
+    border-radius: 0.625rem;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 0.5rem;
+}
+
+.post-card p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+}
+
+.post-card input {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    outline: none;
+    font-size: 0.875rem;
+}
+
+.post-card button {
+    padding: 0.5rem;
+    border-radius: 0.625rem;
+    border: none;
+    background: linear-gradient(135deg, #a78fd2, #926cb8);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.post-card button:hover {
+    background: linear-gradient(135deg, #9d80d4, #927cba);
+}
+
+.like-line {
+  display: flex;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.like-btn {
+  width: 5rem;
+  padding: 0.7rem 0;  /* sirf top-bottom */
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+
+/* ===== Comment Line ===== */
+.comment-line {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.comment-line input[type="text"] {
+  flex: 1;
+  padding: 0.8rem 0.5rem; /* vertical thoda zyada */
+  border-radius: 0.5rem;
+  border: 0.0625rem solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.comment-btn {
+  width: 6rem;
+  padding: 0.8rem 0;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(135deg, #a78fd2, #926cb8);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.comment-btn:hover {
+  background: linear-gradient(135deg, #9d80d4, #927cba);
+}
+
+/* ===== Create Post Page ===== */
+.create-post-page {
+    width: 28rem;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(1.125rem);
+    border-radius: 1.125rem;
+    border: 0.0625rem solid rgba(255,255,255,0.25);
+    box-shadow: 0 1.5625rem 3.125rem rgba(0,0,0,0.35),
+                inset 0 0 0 0.0625rem rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-post-page h2 {
+    text-align: center;
+    margin-bottom: 1.5625rem;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #8c74b9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.create-post-page input,
+.create-post-page textarea {
+    width: 100%;
+    padding: 0.8125rem 0.875rem;
+    margin-top: 0.875rem;
+    border-radius: 0.625rem;
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.create-post-page input::placeholder,
+.create-post-page textarea::placeholder {
+    color: rgba(255,255,255,0.65);
+}
+
+.create-post-page input:focus,
+.create-post-page textarea:focus {
+    border-color: #8b63ae;
+    background: rgba(255,255,255,0.25);
+    box-shadow: 0 0 0 0.1875rem rgba(152,124,193,0.25);
+}
+
+.create-post-page button {
+    width: 50%;
+    padding: 0.8125rem;
+    margin: 1.375rem auto 0;
+    display: block;
+    background: linear-gradient(135deg, #a78fd2, #926cb8);
+    color: #ffffff;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.025rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-post-page button:hover {
+    transform: translateY(-0.125rem);
+    background: linear-gradient(135deg, #9d80d4, #927cba);
+    box-shadow: 0 0.625rem 1.5625rem rgba(167,143,210,0.5);
+}
+
+.create-post-page button:active {
+    transform: scale(0.98);
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(1.875rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
